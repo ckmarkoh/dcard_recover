@@ -1,4 +1,4 @@
-var recover_button='<button class="css3button btn1" style="display:none" id="input_recover">回復</button>';
+var recover_button='<button class="css3button btn1" style="display:none" id="input_recover">回復暫存</button>';
 //var clear_button='<button class="css3button btn1" style="display:none" id="input_clear">清除</button>';
 
 
@@ -58,3 +58,19 @@ else if ($("#article_content").length > 0 ){
 	});
 }
 
+else if ($(".comment_content").length > 0 ){
+	$('.comment_content').parent().prepend(recover_button);
+
+	if( (localStorage['dcart_com_ct'] != '') &&  
+			(!(typeof(localStorage['dcart_com_ct']) === 'undefined')) ){
+		$("#input_recover").show();
+	};
+
+	$(window).unload(function(){
+		localStorage.setItem('dcart_com_ct', $('.comment_content').val());
+	});
+	$("#input_recover").click(function(){
+		$('.comment_content').val(localStorage['dcart_com_ct']);
+		localStorage.removeItem('dcart_com_ct');
+	});
+}
