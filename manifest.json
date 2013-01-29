@@ -2,7 +2,7 @@
   "name": "Dcard Recoverer",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "Helps you recover the missing text.",
+  "description": "Helps you recover the missing text. source: https://github.com/ckmarkoh/dcard_recover ",
   "content_scripts": [
   	{
   		"matches": ["http://dcard.tw/*","http://www.dcard.tw/*"],
